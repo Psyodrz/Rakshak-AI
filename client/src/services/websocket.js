@@ -5,7 +5,9 @@
  * This prevents React.StrictMode from disrupting the connection.
  */
 
-const WS_URL = 'ws://127.0.0.1:8000/ws';
+const WS_URL = import.meta.env.VITE_WS_URL || (import.meta.env.PROD 
+  ? 'wss://rakshak-ai-backend.onrender.com/ws' 
+  : 'ws://127.0.0.1:8000/ws');
 
 class WebSocketService {
   constructor() {

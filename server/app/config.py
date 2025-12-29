@@ -196,8 +196,8 @@ class Config:
     All AI/ML logic is real and production-grade.
     """
     
-    # CORS settings for development
-    CORS_ORIGINS = ["http://localhost:5173", "http://localhost:3000"]
+    # CORS settings for development and production
+    CORS_ORIGINS = ["*"]
 
 
 # Singleton config instance
