@@ -197,7 +197,7 @@ class Config:
     """
     
     # CORS settings for development and production
-    CORS_ORIGINS = ["*", "https://ai-rakshak.vercel.app"]
+    CORS_ORIGINS = ["*"]
 
 
 # Singleton config instance
