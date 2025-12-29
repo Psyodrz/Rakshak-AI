@@ -4,9 +4,13 @@
  * Centralized API communication with the RAKSHAK-AI server.
  */
 
-const API_BASE = import.meta.env.VITE_API_URL || (import.meta.env.PROD 
-  ? 'https://rakshak-ai-backend.onrender.com' 
-  : 'http://127.0.0.1:8000');
+const getBaseUrl = () => {
+  if (import.meta.env.VITE_API_URL) return import.meta.env.VITE_API_URL;
+  if (import.meta.env.PROD) return 'https://rakshak-ai-backend.onrender.com';
+  return `http://${window.location.hostname}:8000`;
+};
+
+const API_BASE = getBaseUrl();
 
 /**
  * Generic fetch wrapper with error handling
