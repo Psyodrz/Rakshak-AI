@@ -2,6 +2,7 @@ services:
   - type: web
     name: rakshak-ai-backend
     env: python
+    rootDir: server
     region: singapore
     plan: free
     buildCommand: pip install -r requirements.txt
