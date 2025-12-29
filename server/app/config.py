@@ -197,7 +197,12 @@ class Config:
     """
     
     # CORS settings for development and production
-    CORS_ORIGINS = ["*"]
+    CORS_ORIGINS = [
+        "http://localhost:5173",
+        "http://localhost:3000",
+        "https://ai-rakshak.vercel.app",
+        "https://rakshak-ai-backend.onrender.com"
+    ]
 
 
 # Singleton config instance
