@@ -1,0 +1,547 @@
+/**
+ * Dashboard Component Styles
+ * Mobile-First Responsive Design
+ */
+
+/* ============================================
+   BASE STYLES (MOBILE FIRST)
+   ============================================ */
+
+/* Risk Meter Card */
+.risk-meter-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.risk-meter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.risk-score-container {
+  width: 100%;
+  max-width: 200px;
+}
+
+.risk-gauge {
+  width: 100%;
+  height: auto;
+}
+
+.risk-score-text {
+  font-size: 36px;
+  font-weight: 700;
+  font-family: var(--font-mono);
+}
+
+.risk-label-text {
+  font-size: 9px;
+  fill: var(--color-text-muted);
+  letter-spacing: 0.1em;
+}
+
+.classification-badge {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  background: transparent;
+  border: 2px solid;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.classification-badge.risk-tampering {
+  animation: pulse-border 1.5s infinite;
+}
+
+.confidence-display {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.75rem;
+}
+
+.confidence-label {
+  color: var(--color-text-muted);
+}
+
+.confidence-value {
+  font-weight: 600;
+  font-family: var(--font-mono);
+}
+
+/* System Status Grid */
+.system-status-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-2);
+}
+
+/* Stat Card */
+.stat-card {
+  padding: var(--space-3);
+}
+
+.stat-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-1);
+}
+
+.stat-icon {
+  font-size: 1rem;
+}
+
+.stat-label {
+  font-size: 0.6rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+}
+
+/* Dashboard Layout */
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.dashboard-top {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.dashboard-section {
+  margin-top: var(--space-4);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-3);
+}
+
+.section-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* Simulation Controls */
+.simulation-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  background: var(--glass-bg);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--glass-border);
+}
+
+.simulation-label {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.scenario-select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding: var(--space-2) var(--space-8) var(--space-2) var(--space-3);
+  background: var(--glass-bg-elevated);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  width: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236366f1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  transition: all var(--transition-fast);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.scenario-select:hover {
+  border-color: var(--color-accent-indigo);
+  background-color: rgba(30, 27, 75, 0.6);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
+}
+
+.scenario-select:focus {
+  outline: none;
+  border-color: var(--color-accent-cyan);
+  box-shadow: 0 0 0 2px rgba(6, 182, 212, 0.2);
+}
+
+/* Reason List */
+.reason-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.reason-item {
+  padding: var(--space-2) var(--space-3);
+  background: var(--glass-bg);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  border-left: 3px solid var(--glass-border);
+}
+
+.reason-item.warning {
+  border-left-color: var(--color-warning);
+}
+
+.reason-item.danger {
+  border-left-color: var(--color-danger);
+}
+
+/* Actions List */
+.action-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.action-item {
+  padding: var(--space-2);
+  background: var(--glass-bg);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.action-item.critical {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+/* Evidence Preview */
+.evidence-preview {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.evidence-item {
+  background: var(--glass-bg);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.evidence-header {
+  padding: var(--space-2) var(--space-3);
+  border-bottom: 1px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.evidence-title {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.evidence-content {
+  padding: var(--space-3);
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.evidence-placeholder {
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+/* Sensor Bars */
+.sensor-visualization {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  padding: var(--space-4);
+}
+
+.sensor-bar-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.sensor-bar-container {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.sensor-bar {
+  width: 100%;
+  background: var(--color-accent-indigo);
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  transition: height 0.3s ease;
+}
+
+.sensor-bar.anomaly {
+  background: var(--color-danger);
+  animation: pulse-bar 1s infinite;
+}
+
+@keyframes pulse-bar {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.sensor-label {
+  font-size: 0.5rem;
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+/* ============================================
+   TABLET BREAKPOINT (768px+)
+   ============================================ */
+@media (min-width: 768px) {
+  .system-status-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-3);
+  }
+  
+  .stat-card {
+    padding: var(--space-4);
+  }
+  
+  .stat-icon {
+    font-size: 1.25rem;
+  }
+  
+  .stat-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+  }
+  
+  .stat-value {
+    font-size: 1.75rem;
+  }
+  
+  .dashboard-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-5);
+  }
+  
+  .simulation-controls {
+    flex-direction: row;
+    align-items: center;
+    padding: var(--space-4);
+  }
+  
+  .scenario-select {
+    width: auto;
+    min-width: 180px;
+  }
+  
+  .evidence-preview {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+  
+  .sensor-visualization {
+    height: 100px;
+    gap: var(--space-1);
+  }
+  
+  .sensor-label {
+    font-size: 0.55rem;
+  }
+}
+
+/* ============================================
+   DESKTOP BREAKPOINT (1024px+)
+   ============================================ */
+@media (min-width: 1024px) {
+  .risk-score-container {
+    max-width: 260px;
+  }
+  
+  .risk-score-text {
+    font-size: 44px;
+  }
+  
+  .risk-label-text {
+    font-size: 10px;
+  }
+  
+  .classification-badge {
+    padding: var(--space-3) var(--space-5);
+    font-size: 0.9rem;
+  }
+  
+  .dashboard {
+    gap: var(--space-6);
+  }
+  
+  .dashboard-section {
+    margin-top: var(--space-6);
+  }
+  
+  .section-header {
+    margin-bottom: var(--space-4);
+  }
+  
+  .section-title {
+    font-size: 1.125rem;
+  }
+  
+  .reason-item,
+  .action-item {
+    font-size: 0.875rem;
+    padding: var(--space-3);
+  }
+  
+  .evidence-content {
+    padding: var(--space-4);
+    min-height: 150px;
+  }
+  
+  .evidence-title {
+    font-size: 0.875rem;
+  }
+}
+
+/* ============================================
+   LARGE DESKTOP (1280px+)
+   ============================================ */
+@media (min-width: 1280px) {
+  .risk-score-container {
+    max-width: 280px;
+  }
+  
+  .risk-score-text {
+    font-size: 48px;
+  }
+  
+  .classification-badge {
+    font-size: 1rem;
+  }
+}
+
+/* ============================================
+   LIGHT THEME OVERRIDES
+   ============================================ */
+[data-theme="light"] .simulation-controls {
+  background: rgba(99, 102, 241, 0.05);
+  border-color: rgba(99, 102, 241, 0.15);
+}
+
+[data-theme="light"] .scenario-select {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(99, 102, 241, 0.2);
+  color: #0f172a;
+}
+
+[data-theme="light"] .stat-value {
+  color: #1e1b4b;
+}
+
+[data-theme="light"] .reason-item {
+  background: rgba(99, 102, 241, 0.05);
+  border-color: rgba(99, 102, 241, 0.15);
+}
+
+[data-theme="light"] .action-item {
+  background: rgba(99, 102, 241, 0.05);
+}
+
+[data-theme="light"] .evidence-item {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+}
+
+[data-theme="light"] .evidence-header {
+  border-bottom-color: rgba(99, 102, 241, 0.15);
+}
+
+[data-theme="light"] .sensor-bar {
+  background: linear-gradient(180deg, #6366f1, #4f46e5);
+}
+
+/* ============================================
+   EMERGENCY MODE OVERRIDES
+   ============================================ */
+.app-container.emergency-mode .simulation-controls {
+  background: rgba(40, 5, 5, 0.85);
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.app-container.emergency-mode .scenario-select {
+  background-color: rgba(60, 10, 10, 0.8);
+  border-color: rgba(239, 68, 68, 0.4);
+  color: #fca5a5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23ef4444' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+.app-container.emergency-mode .scenario-select:hover {
+  border-color: #ef4444;
+}
+
+.app-container.emergency-mode .risk-score-text {
+  color: #ef4444;
+  text-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+}
+
+.app-container.emergency-mode .evidence-item {
+  background: rgba(40, 5, 5, 0.85);
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.app-container.emergency-mode .evidence-header {
+  border-bottom-color: rgba(239, 68, 68, 0.3);
+}
+
+.app-container.emergency-mode .sensor-bar {
+  background: linear-gradient(180deg, #ef4444, #991b1b);
+}
+
+.app-container.emergency-mode .section-title span {
+  filter: grayscale(1) sepia(1) saturate(100) hue-rotate(-50deg);
+}

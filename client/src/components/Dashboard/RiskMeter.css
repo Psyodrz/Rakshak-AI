@@ -1,0 +1,183 @@
+/**
+ * Premium Risk Meter Styles
+ * Modern radial gauge design
+ */
+
+.risk-meter-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-6);
+  position: relative;
+}
+
+/* Ambient glow effect */
+.risk-meter-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(20px);
+}
+
+/* Main gauge container */
+.risk-meter-gauge {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  z-index: 1;
+}
+
+.gauge-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.3));
+}
+
+/* Center content */
+.gauge-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.risk-value {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.risk-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-top: var(--space-2);
+}
+
+/* Status badge */
+.risk-status {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-5);
+  border-radius: var(--radius-full);
+  margin-top: var(--space-5);
+  color: white;
+  font-weight: 700;
+  font-size: 0.75rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.status-icon {
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.status-label {
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* Confidence bar */
+.confidence-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+  width: 100%;
+  max-width: 220px;
+}
+
+.confidence-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  letter-spacing: 0.05em;
+}
+
+.confidence-track {
+  flex: 1;
+  height: 5px;
+  background: rgba(99, 102, 241, 0.15);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.confidence-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width 0.5s ease-out;
+  box-shadow: 0 0 10px currentColor;
+}
+
+.confidence-value {
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  color: var(--color-text-secondary);
+  min-width: 38px;
+  text-align: right;
+}
+
+/* Gauge SVG Elements */
+.gauge-track {
+  stroke: rgba(255, 255, 255, 0.1);
+}
+
+.gauge-tick {
+  fill: rgba(255, 255, 255, 0.3);
+}
+
+/* ============================================
+   LIGHT THEME OVERRIDES
+   ============================================ */
+[data-theme="light"] .risk-meter-container {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: var(--radius-lg);
+}
+
+[data-theme="light"] .risk-meter-glow {
+  filter: blur(30px);
+  opacity: 0.4;
+}
+
+[data-theme="light"] .gauge-svg {
+  filter: drop-shadow(0 4px 20px rgba(99, 102, 241, 0.15));
+}
+
+/* Important: Make gauge track visible on light backgrounds */
+[data-theme="light"] .gauge-track {
+  stroke: rgba(99, 102, 241, 0.15);
+}
+
+[data-theme="light"] .gauge-tick {
+  fill: rgba(99, 102, 241, 0.3);
+}
+
+[data-theme="light"] .risk-label {
+  color: #64748b;
+}
+
+[data-theme="light"] .confidence-track {
+  background: rgba(99, 102, 241, 0.12);
+}
+
+[data-theme="light"] .confidence-label {
+  color: #64748b;
+}
+
+[data-theme="light"] .confidence-value {
+  color: #475569;
+}

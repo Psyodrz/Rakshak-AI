@@ -1,0 +1,150 @@
+/**
+ * Emergency Panel Styles
+ */
+
+.emergency-panel {
+  background: rgba(40, 5, 5, 0.95);
+  border: 2px solid #ef4444;
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  margin-bottom: var(--space-4);
+  box-shadow: 0 0 50px rgba(220, 38, 38, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Striped background animation */
+.emergency-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: repeating-linear-gradient(
+    45deg,
+    #ef4444,
+    #ef4444 20px,
+    #b91c1c 20px,
+    #b91c1c 40px
+  );
+  animation: stripe-move 2s linear infinite;
+}
+
+@keyframes stripe-move {
+  from { background-position: 0 0; }
+  to { background-position: 56px 0; }
+}
+
+.emergency-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid rgba(239, 68, 68, 0.3);
+  margin-bottom: var(--space-4);
+}
+
+.emergency-status {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.status-icon {
+  font-size: 3rem;
+  animation: alarm-pulse 1s ease-in-out infinite;
+}
+
+@keyframes alarm-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+.status-text h2 {
+  color: #ef4444;
+  margin: 0;
+  font-size: 1.5rem;
+  letter-spacing: 0.1em;
+  text-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+}
+
+.status-text p {
+  color: #fca5a5;
+  margin: 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+.btn-deescalate {
+  background: transparent;
+  border: 2px solid #f87171;
+  color: #f87171;
+  padding: var(--space-3) var(--space-6);
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-deescalate:hover {
+  background: rgba(248, 113, 113, 0.1);
+  box-shadow: 0 0 20px rgba(248, 113, 113, 0.2);
+}
+
+.emergency-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+}
+
+.emergency-column h3 {
+  color: #fca5a5;
+  font-size: 0.9rem;
+  margin-bottom: var(--space-3);
+  letter-spacing: 0.1em;
+}
+
+.action-buttons {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.btn-action {
+  padding: var(--space-3);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  background: rgba(20, 0, 0, 0.5);
+  color: #fca5a5;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  text-align: left;
+  font-weight: 600;
+  transition: all 0.2s;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-action:hover {
+  background: rgba(40, 5, 5, 0.8);
+  border-color: #ef4444;
+}
+
+.btn-action.active {
+  background: #ef4444;
+  color: white;
+  border-color: #ef4444;
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
+}
+
+@media (max-width: 768px) {
+  .emergency-header {
+    flex-direction: column;
+    gap: var(--space-3);
+    text-align: center;
+  }
+  
+  .emergency-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+}
